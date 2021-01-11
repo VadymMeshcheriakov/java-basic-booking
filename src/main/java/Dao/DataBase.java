@@ -2,7 +2,6 @@ package Dao;
 
 import Booking.Booking;
 import Booking.Passenger;
-import Booking.Flight;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
