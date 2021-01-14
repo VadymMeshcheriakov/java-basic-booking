@@ -1,7 +1,6 @@
 package Dao;
 
 
-
 import Booking.Flight;
 
 import java.io.IOException;
@@ -12,6 +11,7 @@ public interface FlightDAO {
     Flight getFlightById(long id);
     List<Flight> getAllFlights();
 //    boolean deleteFlightById(long id);
+    void createFlight(int id,  String departureDateTime, String destination, int numberOfSeats);
     void saveFlight(Flight flightList);
     void loadDataToDB(List<Flight> flightLists) throws IOException;
     void loadDataFromDB() throws IOException;

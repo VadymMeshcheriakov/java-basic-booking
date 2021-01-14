@@ -7,37 +7,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Booking implements Serializable {
-//    private final long number;
-    protected long id;
+    protected long bookingId;
     private final LocalDateTime dateTime = LocalDateTime.now();
-    private List<Person> passengers = new ArrayList();
-    private List<Flight> flights = new ArrayList<>();
-    final String DATE_TIME_FORMAT = "dd/MM/yyyy HH:mm";
+    private List<Person> passengers;
+    private List<Flight> flights;
+    private Flight id;
+    final String DATE_TIME_FORMAT = "dd-MM-yyyy HH:mm";
 
-    public Booking(List<Flight> flights){
-//        this.number = setBookingNumber();
-        this.flights = flights;
+    public Booking(Flight id){
+        this.id = id;
     }
-    public Booking(List<Flight> flights, List<Person> passengers) {
-//        this.number = setBookingNumber();
-        this.flights = flights;
+    public Booking(Flight id, List<Person> passengers) {
+        this.id = id;
         this.setPassengers(passengers);
     }
-//    public long getBookingNumber() {
-//        return this.number;
-//    }
-//    private long setBookingNumber() {
-//
-//        return dateTime.getYear() * 10000000000L +
-//                dateTime.getMonth().getValue() * 100000000 +
-//                dateTime.getDayOfMonth() * 1000000 +
-//                dateTime.getHour() * 10000 +
-//                dateTime.getMinute() * 100 +
-//                dateTime.getSecond();
-//
-//    }
-    public long getId(){return id;}
-    public  void setId(long id){this.id = id;}
+
+    public long getBookingId(){return bookingId;}
+    public  void setBookingId(long bookingId){this.bookingId = bookingId;}
     public LocalDateTime getDateTime() {
         return dateTime;
     }
@@ -78,7 +64,6 @@ public class Booking implements Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Booking booking = (Booking) o;
         return id == booking.id;
-//        return number == booking.number;
     }
     @Override
     public String toString(){

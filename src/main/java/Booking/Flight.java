@@ -1,5 +1,6 @@
 package Booking;
 
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
@@ -7,22 +8,22 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Flight implements Serializable {
-    protected long id;
+    protected int id;
     private String departureDateTime;
     private String destination;
     private int numberOfSeats;
     private List<Person> passengers;
 
 
-    public Flight(long id, String departureDateTime, String destination, int numberOfSeats){
+    public Flight(int id, String departureDateTime, String destination, int numberOfSeats){
         this.id = id;
         this.departureDateTime = departureDateTime;
         this.destination = destination;
         this.numberOfSeats = numberOfSeats;
         this.passengers = new ArrayList<>();
     }
-    public long getFlightId(){return id;}
-    public void setFlightId(long id){this.id = id;}
+    public int getFlightId(){return id;}
+    public void setFlightId(int id){this.id = id;}
     public String getDepartureDateTime(){return departureDateTime;}
     public void setDepartureDateTime(String departureDateTime){this.departureDateTime = departureDateTime;}
     public LocalDateTime getDateTime(String departureDateTime) {

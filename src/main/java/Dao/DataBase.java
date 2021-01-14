@@ -2,6 +2,7 @@ package Dao;
 
 import Booking.Booking;
 import Booking.Passenger;
+import Booking.Flight;
 
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -11,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataBase {
-    private static final String path = "database.txt";
+    private static final String path = "/database.txt";
     public static void writeBooking(List<Booking> bookingList){
     try{
         FileOutputStream fos = new FileOutputStream(path);
