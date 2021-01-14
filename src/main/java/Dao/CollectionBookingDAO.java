@@ -1,6 +1,8 @@
 package Dao;
 
 import Booking.Booking;
+import Booking.Flight;
+import Booking.Person;
 import Logger.BookingLogger;
 
 import java.io.*;
@@ -23,10 +25,10 @@ public class CollectionBookingDAO implements BookingDAO{
         }
     }
     @Override
-    public Booking getBookingById(long id) {
+    public Booking getBookingById(long bookingId) {
         Booking result = null;
         for (Booking b : this.bookingList) {
-            if (b.getId() == id) result = b;
+            if (b.getBookingId() == bookingId) result = b;
         }
         BookingLogger.info("getting booking by id");
         return result;
@@ -45,6 +47,11 @@ public class CollectionBookingDAO implements BookingDAO{
         return false;
     }
     @Override
+    public void createBooking(Flight id, List<Person> passengers){
+        Booking booking = new Booking(id, passengers);
+        this.saveBooking(booking);
+    }
+    @Override
     public void saveBooking(Booking booking){
         int index = this.bookingList.indexOf(booking);
 
@@ -52,7 +59,7 @@ public class CollectionBookingDAO implements BookingDAO{
             this.bookingList.set(index, booking);
         } else {
             BookingLogger.info("adding new booking");
-            booking.setId(idCounter++);
+            booking.setBookingId(idCounter++);
             this.bookingList.add(booking);
         }
     }

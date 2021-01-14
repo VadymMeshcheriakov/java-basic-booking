@@ -13,8 +13,9 @@ public class Passenger extends Person implements Serializable {
     }
     @Override
     public String toString(){
-        return "Booking.Passenger{" + "pass_ID= " + this.getId() + //? or id
-                "name= " + this.getName() +
-                "surname= " + this.getSurname() + "}";
+        return "Booking.Passenger{"
+                + "pass_ID= " + this.getId() + //? or id
+                 ", name= " + this.getName() +
+                ", surname= " + this.getSurname() + "}";
     }
 }

@@ -8,7 +8,7 @@ import java.util.List;
 
 public class CollectionFlightDAO implements FlightDAO{
     private List<Flight> flightList = new ArrayList<>();
-    private long idCounter = 1;
+    private int idCounter = 1;
     @Override
     public Flight getFlightByIndex(int index){
         if(index < 0 || index > this.flightList.size() - 1){
@@ -36,6 +36,11 @@ public class CollectionFlightDAO implements FlightDAO{
             flight.setFlightId(idCounter++);
             this.flightList.add(flight);
         }
+    }
+    @Override
+    public void createFlight(int id, String departureDateTime, String destination, int numberOfSeats){
+        Flight flight = new Flight(id, departureDateTime,destination, numberOfSeats);
+        this.saveFlight(flight);
     }
     @Override
     public void loadDataToDB(List<Flight> flightList) throws IOException {

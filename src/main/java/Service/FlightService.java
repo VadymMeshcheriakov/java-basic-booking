@@ -1,5 +1,6 @@
 package Service;
 
+
 import Booking.Flight;
 import Dao.FlightDAO;
 
@@ -15,14 +16,18 @@ public class FlightService {
     public Flight getFlightById(long id){return this.flightDAO.getFlightById(id);}
     public List<Flight> getAllFlights(){return this.flightDAO.getAllFlights();}
     public void displayAllFlights() {this.flightDAO.getAllFlights().forEach(System.out::println);}
-    public Flight getFlightInfo(String destination, String departureDateTime, int numberOfSeats){
-          return (Flight) this.flightDAO.getAllFlights()
+    public List<Flight> getFlightInfo(String destination, String departureDateTime, int numberOfSeats){
+          return this.flightDAO.getAllFlights()
                   .stream()
                   .filter(Objects::nonNull)
                   .filter(flight -> flight.getDestination().equals(destination)  &&
                           flight.getDepartureDateTime().equals(departureDateTime) &&
                           flight.getNumberOfSeats() > numberOfSeats)
                  .collect(Collectors.toList());
+    }
+    public void createFlight(int id, String departureDateTime, String destination, int numberOfSeats){
+        Flight flight = new Flight(id, departureDateTime, destination, numberOfSeats);
+        this.flightDAO.saveFlight(flight);
     }
     public void saveFlight(Flight flight){this.flightDAO.saveFlight(flight);}
     public void loadDataToDB(List<Flight> flightList) throws IOException{this.flightDAO.loadDataToDB(flightList);}

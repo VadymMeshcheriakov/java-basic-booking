@@ -1,6 +1,10 @@
 package Service;
 
 import Booking.Booking;
+import Booking.Flight;
+import Booking.Person;
+
+
 import Dao.BookingDAO;
 
 import java.io.IOException;
@@ -16,6 +20,10 @@ public class BookingService {
     public Booking getBookingById(long id){return this.bookingDAO.getBookingById(id);}
     public List<Booking> getAllBookings(){return this.bookingDAO.getAllBookings();}
     public boolean deleteBookingById(long id){return this.bookingDAO.deleteBookingById(id);}
+    public void createBooking(Flight id, List<Person> passengers){
+        Booking booking = new Booking(id, passengers);
+        this.bookingDAO.saveBooking(booking);
+    }
     public void saveBooking(Booking booking){this.bookingDAO.saveBooking(booking);}
     public void loadDataToDB(List<Booking> bookingList) throws IOException {this.bookingDAO.loadDataToDB(bookingList);}
     public void loadDataFromDB() throws IOException{this.bookingDAO.loadDataFromDB();}
