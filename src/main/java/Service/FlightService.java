@@ -12,21 +12,29 @@ import java.util.stream.Collectors;
 public class FlightService {
     private FlightDAO flightDAO;
     public FlightService(FlightDAO flightDAO){this.flightDAO = flightDAO;}
-    public Flight  getFlightByIndex(int index){return this.flightDAO.getFlightByIndex(index);}
-    public Flight getFlightById(long id){return this.flightDAO.getFlightById(id);}
+    public Flight  getFlightByIndex(int index){
+        return this.flightDAO.getFlightByIndex(index);
+    }
+    public List<Flight> getFlightById(int id){
+        return this.flightDAO.getAllFlights().stream()
+                .filter(flight ->flight.getFlightId() == id)
+                .peek(System.out::println)
+                .collect(Collectors.toList());
+    }
     public List<Flight> getAllFlights(){return this.flightDAO.getAllFlights();}
     public void displayAllFlights() {this.flightDAO.getAllFlights().forEach(System.out::println);}
-    public List<Flight> getFlightInfo(String destination, String departureDateTime, int numberOfSeats){
+    public List<Flight> getFlightInfo(String destination, String departureDate, int numberOfSeats){
           return this.flightDAO.getAllFlights()
                   .stream()
                   .filter(Objects::nonNull)
                   .filter(flight -> flight.getDestination().equals(destination)  &&
-                          flight.getDepartureDateTime().equals(departureDateTime) &&
+                          flight.getDepartureDate().equals(departureDate) &&
                           flight.getNumberOfSeats() > numberOfSeats)
+                  .peek(System.out::println)
                  .collect(Collectors.toList());
     }
-    public void createFlight(int id, String departureDateTime, String destination, int numberOfSeats){
-        Flight flight = new Flight(id, departureDateTime, destination, numberOfSeats);
+    public void createFlight(int id, String departureDate, String departureTime, String destination, int numberOfSeats){
+        Flight flight = new Flight(id, departureDate,departureTime, destination, numberOfSeats);
         this.flightDAO.saveFlight(flight);
     }
     public void saveFlight(Flight flight){this.flightDAO.saveFlight(flight);}

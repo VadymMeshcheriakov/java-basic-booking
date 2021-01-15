@@ -1,33 +1,42 @@
 package Booking;
 
 
+import javax.swing.text.DateFormatter;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Flight implements Serializable {
     protected int id;
-    private String departureDateTime;
+    private String departureDate;
+    private String departureTime;
     private String destination;
     private int numberOfSeats;
     private List<Person> passengers;
 
 
-    public Flight(int id, String departureDateTime, String destination, int numberOfSeats){
+    public Flight(int id, String departureDate, String departureTime, String destination, int numberOfSeats){
         this.id = id;
-        this.departureDateTime = departureDateTime;
+        this.departureDate = departureDate;
+        this.departureTime = departureTime;
         this.destination = destination;
         this.numberOfSeats = numberOfSeats;
         this.passengers = new ArrayList<>();
     }
     public int getFlightId(){return id;}
     public void setFlightId(int id){this.id = id;}
-    public String getDepartureDateTime(){return departureDateTime;}
-    public void setDepartureDateTime(String departureDateTime){this.departureDateTime = departureDateTime;}
-    public LocalDateTime getDateTime(String departureDateTime) {
-        return LocalDateTime.parse(departureDateTime,DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm") );    }
+    public String getDepartureDate(){return departureDate;}
+    public void setDepartureDate(String departureDate){this.departureDate = departureDate;}
+    public String getDepartureTime(){return departureTime;}
+    public void setDepartureTime(String departureTime){this.departureTime = departureTime;}
+    public LocalDate getDate(String departureDate) {
+        return LocalDate.parse(departureDate, DateTimeFormatter.ofPattern("dd/MM/yyyy"));}
+    public LocalTime getTime(String departureTime) {
+        return LocalTime.parse(departureTime, DateTimeFormatter.ofPattern("HH:mm"));}
     public String getDestination(){return destination;}
     public void setDestination(String destination){this.destination = destination;}
     public int getNumberOfSeats(){return numberOfSeats;}
@@ -69,7 +78,8 @@ public class Flight implements Serializable {
 
     @Override
     public String toString(){
-        return "Flight{id= " + id  + ", departureDateTime= " + getDateTime(departureDateTime) + ", destination= " +
+        return "Flight{id= " + id  + ", departureDate= " + getDate(departureDate) +
+                 ", departureTime= " + getTime(departureTime) + ", destination= " +
                 destination  + ", numberOfSeats= " + numberOfSeats + "}";
     }
 }
