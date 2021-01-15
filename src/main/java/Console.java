@@ -25,7 +25,7 @@ public class Console {
                     break;
                 case "3":
                     System.out.println("Please enter flight ID: ");
-                    long id = readNumber(scanner);
+                    int id = readNumber(scanner);
                     FlightContext.flightController.getFlightById(id);
                     break;
                 case "4":
@@ -37,7 +37,7 @@ public class Console {
                             case "1":
                                 System.out.println("Please, enter your destination: ");
                                 String destination = scanner.nextLine();
-                                System.out.println("Please, enter your date(yyyy-mm-dd HH:mm): ");
+                                System.out.println("Please, enter your date(dd/MM/yyyy): ");
                                 String flightDate = scanner.nextLine();
                                 System.out.println("Please, enter number of tickets: ");
                                 int numTickets = readNumber(scanner);
@@ -45,13 +45,13 @@ public class Console {
                                 break;
                             case "2":
                                 System.out.println("Please, choose your flight number to book:");
-                                int flightId = readNumber(scanner);
-                                FlightContext.flightController.getFlightByIndex(flightId);
+                                int index = readNumber(scanner);
+                                FlightContext.flightController.getFlightById(index);
                                 System.out.println("Please, enter your name: ");
                                 String name = scanner.nextLine();
                                 System.out.println("Please, enter your surname: ");
                                 String surname = scanner.nextLine();
-                                FlightContext.bookingController.createBooking(FlightContext.flightController.getFlightById(flightId), new ArrayList<Person>() );
+//                                FlightContext.bookingController.createBooking(FlightContext.flightController.getFlightByIndex(index), FlightContext.bookingController. );
                                 break;
                             case "0":
                                 subRun = false;
@@ -79,11 +79,13 @@ public class Console {
                     int flightId2 = readNumber(scanner);
                     System.out.println("Please, enter  destination: ");
                     String destination = scanner.nextLine();
-                    System.out.println("Please, enter  date (yyyy-mm-dd HH:mm): ");
+                    System.out.println("Please, enter  date (dd/MM/yyyy): ");
                     String flightDate = scanner.nextLine();
+                    System.out.println("Please, enter  time (HH:mm): ");
+                    String flightTime = scanner.nextLine();
                     System.out.println("Please,  number of tickets: ");
                     int numTickets = readNumber(scanner);
-                    FlightContext.flightController.createFlight(flightId2, flightDate, destination, numTickets);
+                    FlightContext.flightController.createFlight(flightId2, flightDate, flightTime, destination, numTickets);
                     break;
                 case "8":
                     FlightContext.flightController.loadDataToDB(FlightContext.flightController.getAllFlights());

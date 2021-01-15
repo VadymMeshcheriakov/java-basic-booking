@@ -16,7 +16,7 @@ public class CollectionFlightDAO implements FlightDAO{
         } else return this.getFlightByIndex(index);
     }
     @Override
-    public Flight getFlightById(long id){
+    public Flight getFlightById(int id){
         Flight result = null;
         for(Flight f : this.flightList){
             if(f.getFlightId() == id) result = f;
@@ -38,8 +38,8 @@ public class CollectionFlightDAO implements FlightDAO{
         }
     }
     @Override
-    public void createFlight(int id, String departureDateTime, String destination, int numberOfSeats){
-        Flight flight = new Flight(id, departureDateTime,destination, numberOfSeats);
+    public void createFlight(int id, String departureDate, String departureTime, String destination, int numberOfSeats){
+        Flight flight = new Flight(id, departureDate, departureTime,destination, numberOfSeats);
         this.saveFlight(flight);
     }
     @Override
