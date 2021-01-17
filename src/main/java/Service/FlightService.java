@@ -5,19 +5,20 @@ import Booking.Flight;
 import Dao.FlightDAO;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class FlightService {
-    private FlightDAO flightDAO;
+   final private FlightDAO flightDAO;
     public FlightService(FlightDAO flightDAO){this.flightDAO = flightDAO;}
-    public Flight  getFlightByIndex(int index){
+    public Flight getFlightByIndex(int index){
         return this.flightDAO.getFlightByIndex(index);
     }
     public List<Flight> getFlightById(int id){
         return this.flightDAO.getAllFlights().stream()
-                .filter(flight ->flight.getFlightId() == id)
+                .filter(flight -> flight.getFlightId() == id)
                 .peek(System.out::println)
                 .collect(Collectors.toList());
     }
@@ -27,7 +28,7 @@ public class FlightService {
           return this.flightDAO.getAllFlights()
                   .stream()
                   .filter(Objects::nonNull)
-                  .filter(flight -> flight.getDestination().equals(destination)  &&
+                  .filter(flight -> flight.getDestination().matches(destination)  &&
                           flight.getDepartureDate().equals(departureDate) &&
                           flight.getNumberOfSeats() > numberOfSeats)
                   .peek(System.out::println)

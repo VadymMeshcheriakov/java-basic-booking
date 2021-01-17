@@ -5,6 +5,8 @@ import Booking.Flight;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
 
 public class CollectionFlightDAO implements FlightDAO{
     private List<Flight> flightList = new ArrayList<>();
@@ -13,7 +15,7 @@ public class CollectionFlightDAO implements FlightDAO{
     public Flight getFlightByIndex(int index){
         if(index < 0 || index > this.flightList.size() - 1){
             return null;
-        } else return this.getFlightByIndex(index);
+        } else return this.getAllFlights().get(index);
     }
     @Override
     public Flight getFlightById(int id){
@@ -37,6 +39,17 @@ public class CollectionFlightDAO implements FlightDAO{
             this.flightList.add(flight);
         }
     }
+//    @Override
+//    public List<Flight> getFlightInfo(String destination, String departureDate, int numberOfSeats){
+//        return this.getAllFlights()
+//                .stream()
+//                .filter(Objects::nonNull)
+//                .filter(flight -> flight.getDestination().matches(destination)  &&
+//                        flight.getDepartureDate().equals(departureDate) &&
+//                        flight.getNumberOfSeats() > numberOfSeats)
+//                .peek(System.out::println)
+//                .collect(Collectors.toList());
+//    }
     @Override
     public void createFlight(int id, String departureDate, String departureTime, String destination, int numberOfSeats){
         Flight flight = new Flight(id, departureDate, departureTime,destination, numberOfSeats);

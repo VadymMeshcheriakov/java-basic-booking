@@ -2,7 +2,7 @@ package Controller;
 
 import Booking.Booking;
 import Booking.Flight;
-import Booking.Person;
+import Booking.Passenger;
 import Service.BookingService;
 
 import java.io.IOException;
@@ -17,8 +17,9 @@ public class BookingController {
     public Booking getBookingByIndex(int index){return this.bookingService.getBookingByIndex(index);}
     public Booking getBookingById(long id){return this.bookingService.getBookingById(id);}
     public List<Booking> getAllBookings(){return this.bookingService.getAllBookings();}
+    public void displayAllBookings(){this.bookingService.displayAllBookings();}
     public boolean deleteBookingById(long id){return this.bookingService.deleteBookingById(id);}
-    public void createBooking(Flight id, List<Person> passengers){this.bookingService.createBooking(id, passengers);}
+    public Passenger createBooking(Flight id, Passenger passenger){return this.bookingService.createBooking(id, passenger);}
     public void saveBooking(Booking booking){this.bookingService.saveBooking(booking);}
     public void loadDataToDB(List<Booking> bookingList) throws IOException {this.bookingService.loadDataToDB(bookingList);}
     public void loadDataFromDB() throws IOException{this.bookingService.loadDataFromDB();}

@@ -2,7 +2,8 @@ package Dao;
 
 import Booking.Booking;
 import Booking.Flight;
-import Booking.Person;
+import Booking.Passenger;
+import Controller.PassengerController;
 import Logger.BookingLogger;
 
 import java.io.*;
@@ -47,9 +48,10 @@ public class CollectionBookingDAO implements BookingDAO{
         return false;
     }
     @Override
-    public void createBooking(Flight id, List<Person> passengers){
-        Booking booking = new Booking(id, passengers);
+    public void createBooking(Flight id, Passenger passenger){
+        Booking booking = new Booking(id, passenger);
         this.saveBooking(booking);
+
     }
     @Override
     public void saveBooking(Booking booking){
@@ -72,7 +74,6 @@ public class CollectionBookingDAO implements BookingDAO{
     public void loadDataFromDB() throws IOException {
         BookingLogger.info("saving bookingList to DB");
         this.bookingList = DataBase.readBooking();
-
     }
 
 }

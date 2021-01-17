@@ -46,12 +46,11 @@ public class Console {
                             case "2":
                                 System.out.println("Please, choose your flight number to book:");
                                 int index = readNumber(scanner);
-                                FlightContext.flightController.getFlightById(index);
                                 System.out.println("Please, enter your name: ");
                                 String name = scanner.nextLine();
                                 System.out.println("Please, enter your surname: ");
                                 String surname = scanner.nextLine();
-//                                FlightContext.bookingController.createBooking(FlightContext.flightController.getFlightByIndex(index), FlightContext.bookingController. );
+                                FlightContext.bookingController.createBooking(FlightContext.flightController.getFlightByIndex(index), FlightContext.passengerController.createNewPassenger(name, surname));
                                 break;
                             case "0":
                                 subRun = false;
@@ -72,7 +71,7 @@ public class Console {
                     String name = scanner.nextLine();
                     System.out.println("Please, enter your surname: ");
                     String surname = scanner.nextLine();
-                    FlightContext.bookingController.getAllBookings();//?????
+                    FlightContext.bookingController.displayAllBookings();
                     break;
                 case "7":
                     System.out.println("Please, enter flight Id: ");

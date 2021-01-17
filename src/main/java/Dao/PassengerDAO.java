@@ -1,7 +1,7 @@
 package Dao;
 
-
 import Booking.Passenger;
+import Booking.Person;
 
 import java.io.IOException;
 import java.util.List;
