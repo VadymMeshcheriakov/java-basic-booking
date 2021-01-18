@@ -74,8 +74,6 @@ public class Console {
                     FlightContext.bookingController.displayAllBookings();
                     break;
                 case "7":
-                    System.out.println("Please, enter flight Id: ");
-                    int flightId2 = readNumber(scanner);
                     System.out.println("Please, enter  destination: ");
                     String destination = scanner.nextLine();
                     System.out.println("Please, enter  date (dd/MM/yyyy): ");
@@ -84,7 +82,7 @@ public class Console {
                     String flightTime = scanner.nextLine();
                     System.out.println("Please,  number of tickets: ");
                     int numTickets = readNumber(scanner);
-                    FlightContext.flightController.createFlight(flightId2, flightDate, flightTime, destination, numTickets);
+                    FlightContext.flightController.createFlight(flightDate, flightTime, destination, numTickets);
                     break;
                 case "8":
                     FlightContext.flightController.loadDataToDB(FlightContext.flightController.getAllFlights());
