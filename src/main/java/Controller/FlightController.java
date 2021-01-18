@@ -14,7 +14,7 @@ public class FlightController {
     public List<Flight> getFlightById(int id){return this.flightService.getFlightById(id);}
     public List<Flight> getAllFlights(){return this.flightService.getAllFlights();}
     public List<Flight> getFlightInfo(String departureDate, String destination, int numberOfSeats){return this.flightService.getFlightInfo(departureDate, destination, numberOfSeats);}
-    public void createFlight(int id, String departureDate, String departureTime, String destination, int numberOfSeats){ this.flightService.createFlight(id, departureDate, departureTime, destination, numberOfSeats);}
+    public void createFlight(String departureDate, String departureTime, String destination, int numberOfSeats){ this.flightService.createFlight( departureDate, departureTime, destination, numberOfSeats);}
     public void displayAllFlights() { this.flightService.displayAllFlights();}
     public void saveFlight(Flight flight){this.flightService.saveFlight(flight);}
     public void loadDataToDB(List<Flight> flightList) throws IOException{this.flightService.loadDataToDB(flightList);}

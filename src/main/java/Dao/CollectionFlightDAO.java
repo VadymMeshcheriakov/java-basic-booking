@@ -51,8 +51,8 @@ public class CollectionFlightDAO implements FlightDAO{
 //                .collect(Collectors.toList());
 //    }
     @Override
-    public void createFlight(int id, String departureDate, String departureTime, String destination, int numberOfSeats){
-        Flight flight = new Flight(id, departureDate, departureTime,destination, numberOfSeats);
+    public void createFlight( String departureDate, String departureTime, String destination, int numberOfSeats){
+        Flight flight = new Flight( departureDate, departureTime,destination, numberOfSeats);
         this.saveFlight(flight);
     }
     @Override

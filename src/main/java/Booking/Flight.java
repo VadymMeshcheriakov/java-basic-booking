@@ -19,8 +19,7 @@ public class Flight implements Serializable {
     private List<Person> passengers;
 
 
-    public Flight(int id, String departureDate, String departureTime, String destination, int numberOfSeats){
-        this.id = id;
+    public Flight( String departureDate, String departureTime, String destination, int numberOfSeats){
         this.departureDate = departureDate;
         this.departureTime = departureTime;
         this.destination = destination;
@@ -41,31 +40,31 @@ public class Flight implements Serializable {
     public void setDestination(String destination){this.destination = destination;}
     public int getNumberOfSeats(){return numberOfSeats;}
     public void setNumberOfSeats(int numberOfSeats){this.numberOfSeats = numberOfSeats;}
-    public int getPassengersOnBoard(){return passengers.size();}
-    public List<Person> getPassengers(){return passengers;}
-    public void setPassengers(List<Person> passengers){this.passengers = passengers;}
-    public boolean addPassenger(Person passenger){
-        if(!passengers.contains(passenger) && passengers.size() < numberOfSeats
-        && passenger != null){
-            passengers.add(passenger);
-           return true;
-        } else {
-            return false;
-        }
-    }
-    public boolean deletePassenger(Person passenger){
-        if(!passengers.contains(passenger)) return false;
-        passengers.remove(passenger);
-        return true;
-    }
-    public boolean deletePassenger(int index){
-        if(index <= 0 && index < passengers.size()){
-            if(!passengers.contains(passengers.get(index))) return false;
-            passengers.remove(passengers.get(index));
-            return true;
-        }
-        return false;
-    }
+//    public int getPassengersOnBoard(){return passengers.size();}
+//    public List<Person> getPassengers(){return passengers;}
+//    public void setPassengers(List<Person> passengers){this.passengers = passengers;}
+//    public boolean addPassenger(Person passenger){
+//        if(!passengers.contains(passenger) && passengers.size() < numberOfSeats
+//        && passenger != null){
+//            passengers.add(passenger);
+//           return true;
+//        } else {
+//            return false;
+//        }
+//    }
+//    public boolean deletePassenger(Person passenger){
+//        if(!passengers.contains(passenger)) return false;
+//        passengers.remove(passenger);
+//        return true;
+//    }
+//    public boolean deletePassenger(int index){
+//        if(index <= 0 && index < passengers.size()){
+//            if(!passengers.contains(passengers.get(index))) return false;
+//            passengers.remove(passengers.get(index));
+//            return true;
+//        }
+//        return false;
+//    }
 
 
     @Override

@@ -11,8 +11,8 @@ public class Booking implements Serializable {
     private final LocalDateTime dateTime = LocalDateTime.now();
     private Passenger passenger;
     private List<Flight> flights;
-    private Flight id;
-    final String DATE_TIME_FORMAT = "dd-MM-yyyy HH:mm";
+    final private Flight id;
+    final String DATE_TIME_FORMAT = "dd/MM/yyyy HH:mm";
 
     public Booking(Flight id){
         this.id = id;
@@ -29,7 +29,7 @@ public class Booking implements Serializable {
         return dateTime;
     }
     public Passenger getPassenger(){return this.passenger;}
-    public void setPassenger(Passenger passengers){this.passenger = passenger;}
+    public void setPassenger(Passenger passenger){this.passenger = passenger;}
     public List<Flight> getFlights() {return this.flights;}
     public void setFlight(List<Flight> flights) {this.flights = flights;}
 //    public boolean addPassenger(Passenger passenger) {
@@ -68,9 +68,7 @@ public class Booking implements Serializable {
     }
     @Override
     public String toString(){
-        return "Booking{" + "id= " + id + ", dateTime= " + dateTime.format(DateTimeFormatter
-                .ofPattern(DATE_TIME_FORMAT)) + ", flight = " + flights +
-                ", passengers= " + passenger + "}";
+        return "Booking , bookingId= " + bookingId + " {"  + id + ", date= " + dateTime.format(DateTimeFormatter
+                .ofPattern(DATE_TIME_FORMAT))  + ", passengers= " + passenger + "}";
     }
-
 }

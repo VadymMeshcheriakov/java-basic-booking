@@ -25,7 +25,7 @@ public class FlightService {
     public List<Flight> getAllFlights(){return this.flightDAO.getAllFlights();}
     public void displayAllFlights() {this.flightDAO.getAllFlights().forEach(System.out::println);}
     public List<Flight> getFlightInfo(String destination, String departureDate, int numberOfSeats){
-          return this.flightDAO.getAllFlights()
+        return this.flightDAO.getAllFlights()
                   .stream()
                   .filter(Objects::nonNull)
                   .filter(flight -> flight.getDestination().matches(destination)  &&
@@ -34,8 +34,8 @@ public class FlightService {
                   .peek(System.out::println)
                  .collect(Collectors.toList());
     }
-    public void createFlight(int id, String departureDate, String departureTime, String destination, int numberOfSeats){
-        Flight flight = new Flight(id, departureDate,departureTime, destination, numberOfSeats);
+    public void createFlight(String departureDate, String departureTime, String destination, int numberOfSeats){
+        Flight flight = new Flight(departureDate,departureTime, destination, numberOfSeats);
         this.flightDAO.saveFlight(flight);
     }
     public void saveFlight(Flight flight){this.flightDAO.saveFlight(flight);}
