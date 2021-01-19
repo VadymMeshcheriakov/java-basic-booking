@@ -23,11 +23,16 @@ public class BookingService {
         this.bookingDAO.getAllBookings().forEach(System.out::println);
     }
     public boolean deleteBookingById(long id){return this.bookingDAO.deleteBookingById(id);}
-    public Passenger createBooking(Flight id, Passenger passenger){
-        Booking booking = new Booking(id, passenger);
+    public Passenger createBooking(Flight index, Passenger passenger){
+        Booking booking = new Booking(index, passenger);
         this.bookingDAO.saveBooking(booking);
         return passenger;
     }
+//    public Passenger createBooking(Flight id, Passenger passenger){
+//        Booking booking = new Booking(id, passenger);
+//        this.bookingDAO.saveBooking(booking);
+//        return passenger;
+//    }
     public void saveBooking(Booking booking){this.bookingDAO.saveBooking(booking);}
     public void loadDataToDB(List<Booking> bookingList) throws IOException {this.bookingDAO.loadDataToDB(bookingList);}
     public void loadDataFromDB() throws IOException{this.bookingDAO.loadDataFromDB();}

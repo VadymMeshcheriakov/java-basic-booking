@@ -19,7 +19,8 @@ public class BookingController {
     public List<Booking> getAllBookings(){return this.bookingService.getAllBookings();}
     public void displayAllBookings(){this.bookingService.displayAllBookings();}
     public boolean deleteBookingById(long id){return this.bookingService.deleteBookingById(id);}
-    public Passenger createBooking(Flight id, Passenger passenger){return this.bookingService.createBooking(id, passenger);}
+    public Passenger createBooking(Flight index, Passenger passenger){return this.bookingService.createBooking(index, passenger);}
+//    public Passenger createBooking(Flight id, Passenger passenger){return this.bookingService.createBooking(id, passenger);}
     public void saveBooking(Booking booking){this.bookingService.saveBooking(booking);}
     public void loadDataToDB(List<Booking> bookingList) throws IOException {this.bookingService.loadDataToDB(bookingList);}
     public void loadDataFromDB() throws IOException{this.bookingService.loadDataFromDB();}
