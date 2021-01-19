@@ -1,17 +1,15 @@
-import Booking.Booking;
-import Booking.Flight;
-import Booking.Passenger;
-import Booking.Person;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-
+import console.ConsoleMenu;
+import helpers.DBInit;
+import airportcontext.AirportContext;
 
 public class Main {
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) {
+        DBInit.initAll();     // --> перезаписать базу данных рейсов и пользователей
 
-            FlightContext.init();
-            Console.start();
+        AirportContext.init();
+        ConsoleMenu.start();  // логин и пароль для входа : login: 1111 , password: 1111
+                                // login: 55555 , password: 55555
+
+
     }
 }
