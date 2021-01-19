@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class DataBase {
-    private static final String path = "/database.txt";
+    private static final String path = "D:\\Java-step-Booking\\java-basic-booking\\database.txt";
     public static void writeBooking(List<Booking> bookingList){
     try{
         FileOutputStream fos = new FileOutputStream(path);
