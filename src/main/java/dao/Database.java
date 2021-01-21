@@ -1,8 +1,6 @@
 package dao;
 
-import entity.Booking;
 import entity.Flight;
-import entity.User;
 import logger.AirportLogger;
 
 import java.io.FileInputStream;

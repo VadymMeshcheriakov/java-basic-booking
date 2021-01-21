@@ -8,7 +8,6 @@ public class Main {
 
         AirportContext.init();
         ConsoleMenu.start();  // логин и пароль для входа : login: 1111 , password: 1111
-                                // login: 55555 , password: 55555
 
 
     }

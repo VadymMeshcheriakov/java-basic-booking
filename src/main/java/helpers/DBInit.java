@@ -1,9 +1,7 @@
 package helpers;
 
 import dao.Database;
-import entity.Booking;
 import entity.Flight;
-import entity.User;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -35,7 +33,7 @@ public class DBInit {
 
     public static void usersInit(){
         users.add(new User( new Date().getTime() + 1,"userName", "userSurname", "login", "password"));
-        users.add(new User(new Date().getTime() + 2, "Vadym", "Meshcheriakov", "55555", "55555"));
+        users.add(new User(new Date().getTime() + 2, "Some", "One", "login2", "password2"));
         users.add(new User(new Date().getTime() + 3,"Konstantin", "Rozhkov", "1111", "1111"));
 
     }

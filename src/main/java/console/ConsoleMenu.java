@@ -2,9 +2,7 @@ package console;
 
 import airportcontext.AirportContext;
 import dao.Database;
-import entity.Booking;
 import entity.Flight;
-import entity.User;
 import exception.NoSuchUserFoundException;
 import exception.UnexpectedConsoleInputException;
 import helpers.PrettyFormat;
