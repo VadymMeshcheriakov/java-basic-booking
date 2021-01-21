@@ -1,9 +1,15 @@
 package airportcontext;
 
+import controller.BookingController;
 import controller.FlightController;
+import controller.UserController;
 import dao.*;
+import entity.Booking;
 import entity.Flight;
+import entity.User;
+import service.BookingService;
 import service.FlightService;
+import service.UserService;
 
 import java.util.List;
 

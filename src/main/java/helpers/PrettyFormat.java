@@ -1,5 +1,6 @@
 package helpers;
 
+import entity.Booking;
 import entity.Flight;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
