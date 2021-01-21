@@ -1,4 +1,4 @@
-package Logger;
+package logger;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -6,7 +6,7 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-public class BookingLogger {
+public class AirportLogger {
     public static void info (String message) {
         saveLogToFile(createLogMessage(message, "DEBUG"));
     }
@@ -32,4 +32,5 @@ public class BookingLogger {
             System.err.println(e);
         }
     }
+
 }
